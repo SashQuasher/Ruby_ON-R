@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SampleApp</title>
+    <title>My Page | <%= yield(:title) %> </title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Emmanuel Quijas", '#', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   root_path %></li>
+            <li><%= link_to "About Me",   about_path %></li>
+            <li><%= link_to "Band", help_path %></li>
+            <li><%= link_to "Sport", sport_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="container">
+            <%= image_tag(@imag, :alt => @alt, :size => @size, :class =>"imag") %>
+            <%= yield %>
+        </section>
+        <footer>
+            <div class="bottom-bar center">
+                Developed by Emmanuel Quijas Valades.All Rights Reserved © 2017
+            </div>
+</footer>
   </body>
 </html>
